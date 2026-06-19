@@ -302,24 +302,86 @@
       </div>
     </section>
 
-    <section id="contato" aria-labelledby="contato-title">
-      <h2 id="contato-title">Contato</h2>
-      <p>Vamos conversar sobre o próximo projeto digital da sua empresa.</p>
+    <section id="contato" class="contact" aria-labelledby="contato-title">
+      <div class="contact__header">
+        <p class="contact__eyebrow">VAMOS CONVERSAR</p>
+        <h2 id="contato-title" class="contact__title">
+          Seu próximo projeto começa com uma boa conversa.
+        </h2>
+        <p class="contact__description">
+          Estamos prontos para entender o seu desafio e desenvolver uma solução
+          digital sob medida para o seu negócio.
+        </p>
+      </div>
 
-      <address>
-        <p>
-          WhatsApp:
-          <a href="https://wa.me/5573999938297">+55 73 99993-8297</a>
-        </p>
-        <p>
-          E-mail:
-          <a href="mailto:kaerytech@gmail.com">kaerytech@gmail.com</a>
-        </p>
-        <p>
-          Site:
-          <a href="https://www.kaery.com.br">kaery.com.br</a>
-        </p>
-      </address>
+      <div class="contact__layout">
+        <address class="contact__card" aria-label="Informações de contato da Kaery">
+          <div class="contact__info">
+            <span class="contact__icon" aria-hidden="true">📞</span>
+            <div>
+              <p class="contact__label">WhatsApp</p>
+              <a href="https://wa.me/5573999938297">+55 73 99993-8297</a>
+            </div>
+          </div>
+
+          <div class="contact__info">
+            <span class="contact__icon" aria-hidden="true">✉️</span>
+            <div>
+              <p class="contact__label">E-mail</p>
+              <a href="mailto:kaerytech@gmail.com">kaerytech@gmail.com</a>
+            </div>
+          </div>
+
+          <div class="contact__info">
+            <span class="contact__icon" aria-hidden="true">🌐</span>
+            <div>
+              <p class="contact__label">Site</p>
+              <a href="https://www.kaery.com.br">kaery.com.br</a>
+            </div>
+          </div>
+
+          <div class="contact__info">
+            <span class="contact__icon" aria-hidden="true">📍</span>
+            <div>
+              <p class="contact__label">Localização</p>
+              <p>Teixeira de Freitas • BA</p>
+            </div>
+          </div>
+
+          <a class="contact__cta" href="https://wa.me/5573999938297">
+            Falar no WhatsApp
+          </a>
+        </address>
+
+        <form class="contact__form" action="#" method="post">
+          <div class="contact__field">
+            <label for="nome">Nome</label>
+            <input id="nome" name="nome" type="text" autocomplete="name" />
+          </div>
+
+          <div class="contact__field">
+            <label for="email">E-mail</label>
+            <input id="email" name="email" type="email" autocomplete="email" />
+          </div>
+
+          <div class="contact__field">
+            <label for="telefone">Telefone</label>
+            <input id="telefone" name="telefone" type="tel" autocomplete="tel" />
+          </div>
+
+          <div class="contact__field">
+            <label for="empresa">Empresa</label>
+            <input id="empresa" name="empresa" type="text" autocomplete="organization" />
+          </div>
+
+          <div class="contact__field contact__field--full">
+            <label for="mensagem">Mensagem</label>
+            <textarea id="mensagem" name="mensagem" rows="5"></textarea>
+          </div>
+
+          <button class="contact__submit" type="submit">Enviar Mensagem</button>
+        </form>
+      </div>
     </section>
   </main>
 
