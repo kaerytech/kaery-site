@@ -461,6 +461,96 @@ section p {
 }
 
 /* ==============================
+   Sobre
+============================== */
+.about {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.85fr);
+  align-items: center;
+  gap: clamp(2.5rem, 6vw, 5rem);
+  padding-block: 6rem;
+  border-block: 1px solid var(--color-border);
+  background:
+    radial-gradient(circle at 85% 20%, rgba(56, 189, 248, 0.1), transparent 20rem),
+    linear-gradient(180deg, rgba(13, 27, 46, 0.72), rgba(7, 17, 31, 0.2));
+}
+
+.about__content {
+  max-width: 660px;
+}
+
+.about__eyebrow {
+  width: fit-content;
+  margin-bottom: 1rem;
+  padding: 0.45rem 0.75rem;
+  border: 1px solid rgba(56, 189, 248, 0.28);
+  border-radius: 999px;
+  color: var(--color-accent);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.about__title {
+  max-width: 620px;
+  margin-bottom: 1.5rem;
+  font-size: clamp(2.1rem, 5vw, 3.75rem);
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+}
+
+.about__text {
+  display: grid;
+  gap: 1rem;
+  max-width: 650px;
+}
+
+.about__text p {
+  font-size: clamp(1rem, 1.7vw, 1.12rem);
+  line-height: 1.8;
+}
+
+.about__pillars {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.about__pillar {
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  background: rgba(13, 27, 46, 0.62);
+  box-shadow: 0 12px 34px rgba(2, 6, 23, 0.14);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease,
+    color 180ms ease;
+}
+
+.about__pillar:hover {
+  transform: translateY(-2px);
+  border-color: rgba(56, 189, 248, 0.45);
+  background: rgba(13, 27, 46, 0.9);
+}
+
+.about__pillar-icon {
+  font-size: 1.55rem;
+  line-height: 1;
+}
+
+.about__pillar h3 {
+  font-size: 1.05rem;
+  line-height: 1.2;
+}
+
+/* ==============================
    Responsividade
 ============================== */
 @media (max-width: 768px) {
@@ -537,5 +627,24 @@ section p {
   .hero__badge {
     flex: 1 1 160px;
     text-align: center;
+  }
+
+  .about {
+    grid-template-columns: 1fr;
+    padding-block: 4rem;
+    text-align: center;
+  }
+
+  .about__eyebrow {
+    margin-inline: auto;
+  }
+
+  .about__pillars {
+    grid-template-columns: 1fr;
+  }
+
+  .about__pillar {
+    min-height: 120px;
+    align-items: center;
   }
 }
