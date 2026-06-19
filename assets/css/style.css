@@ -607,7 +607,8 @@ textarea:focus-visible {
 .about__pillar-icon img,
 .services__icon img,
 .portfolio__image img,
-.process__icon img {
+.process__icon img,
+.contact__icon img {
   width: 100%;
   height: 100%;
   object-fit: contain;
