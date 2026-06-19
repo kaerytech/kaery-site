@@ -1113,7 +1113,7 @@ textarea:focus-visible {
   gap: 0.7rem;
 }
 
-.site-footer__social a {
+.site-footer__social-placeholder {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1121,6 +1121,7 @@ textarea:focus-visible {
   padding: 0.55rem 0.9rem;
   border: 1px solid var(--color-border);
   border-radius: 999px;
+  color: var(--color-text-muted);
   background: rgba(13, 27, 46, 0.58);
 }
 
@@ -1135,13 +1136,6 @@ textarea:focus-visible {
 .site-footer a:hover,
 .site-footer a:focus-visible {
   color: var(--color-accent);
-}
-
-.site-footer__social a:hover,
-.site-footer__social a:focus-visible {
-  transform: translateY(-2px);
-  border-color: rgba(56, 189, 248, 0.45);
-  background: rgba(13, 27, 46, 0.9);
 }
 
 .site-footer a:focus-visible {
