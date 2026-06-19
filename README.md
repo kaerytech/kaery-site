@@ -1,27 +1,50 @@
 # Kaery Site
 
-Site institucional da Kaery, empresa especializada em soluções digitais.
+Site institucional da Kaery, criado como landing page para apresentar serviços digitais, processo de trabalho, portfólio inicial e canais de contato.
 
-## Tecnologias
+## Tecnologias utilizadas
 
 - HTML5
 - CSS3
-- JavaScript
+- JavaScript básico
 - Git
-- GitHub
+- GitHub Pages
 
-## Funcionalidades
+## Estrutura de pastas
 
-- Landing Page
-- Design Responsivo
-- SEO
-- Google Ads Ready
-- Formulário de Contato
+```text
+kaery-site/
+├── assets/
+│   ├── css/
+│   ├── favicon/
+│   ├── icons/
+│   ├── img/
+│   └── js/
+├── index.html
+├── manifest.webmanifest
+├── robots.txt
+├── sitemap.xml
+├── README.md
+└── LICENSE
+```
 
-## Objetivo
+## Como executar localmente
 
-Projeto desenvolvido para compor meu portfólio como Desenvolvedor Front-end.
+Abra o arquivo `index.html` diretamente no navegador ou use uma extensão de servidor local, como Live Server.
 
-## Status
+## Como publicar no GitHub Pages
 
-🚧 Em desenvolvimento
+1. Acesse o repositório no GitHub.
+2. Entre em `Settings`.
+3. Acesse `Pages`.
+4. Em `Build and deployment`, selecione a branch `main`.
+5. Selecione a pasta raiz `/`.
+6. Salve as configurações.
+
+## Próximos passos
+
+- Revisar SEO e performance após publicação.
+- Substituir placeholders por imagens finais.
+- Configurar domínio `kaery.com.br`.
+- Preparar integração futura com analytics.
+- Evoluir o formulário de contato com backend ou serviço externo.
