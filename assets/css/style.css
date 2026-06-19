@@ -226,8 +226,10 @@ textarea:focus-visible {
   position: sticky;
   top: 0;
   z-index: 20;
-  border-bottom: 1px solid transparent;
-  background: transparent;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.14);
+  background: rgba(3, 9, 20, 0.88);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 16px 48px rgba(2, 6, 23, 0.24);
   transition:
     background-color 180ms ease,
     border-color 180ms ease,
@@ -502,6 +504,10 @@ textarea:focus-visible {
 .hero__badge {
   padding: 0.85rem 1rem;
   border-radius: 14px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--color-text-muted);
   transition:
     transform var(--transition-default),
@@ -583,8 +589,19 @@ textarea:focus-visible {
 }
 
 .about__pillar-icon {
-  font-size: 1.55rem;
+  width: 3rem;
+  height: 3rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(56, 189, 248, 0.28);
+  border-radius: 14px;
+  color: var(--color-accent);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
   line-height: 1;
+  background: rgba(56, 189, 248, 0.08);
 }
 
 .about__pillar h3 {
@@ -646,14 +663,18 @@ textarea:focus-visible {
 }
 
 .services__icon {
-  width: 3rem;
+  min-width: 3rem;
   height: 3rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border: 1px solid rgba(56, 189, 248, 0.28);
   border-radius: 14px;
-  font-size: 1.45rem;
+  padding-inline: 0.75rem;
+  color: var(--color-accent);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
   background: rgba(56, 189, 248, 0.08);
 }
 
@@ -737,7 +758,10 @@ textarea:focus-visible {
   justify-content: center;
   border: 1px solid rgba(56, 189, 248, 0.28);
   border-radius: var(--radius-card);
-  font-size: 2rem;
+  color: var(--color-accent);
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
   background: rgba(7, 17, 31, 0.52);
   box-shadow: inset 0 1px 0 rgba(248, 250, 252, 0.08);
 }
@@ -859,14 +883,18 @@ textarea:focus-visible {
 }
 
 .process__icon {
-  width: 3.25rem;
+  min-width: 3.25rem;
   height: 3.25rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border: 1px solid rgba(56, 189, 248, 0.28);
   border-radius: 16px;
-  font-size: 1.45rem;
+  padding-inline: 0.7rem;
+  color: var(--color-accent);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
   background:
     radial-gradient(circle at 30% 20%, rgba(56, 189, 248, 0.18), transparent 4rem),
     rgba(7, 17, 31, 0.52);
@@ -949,7 +977,7 @@ textarea:focus-visible {
 }
 
 .contact__icon {
-  width: 2.75rem;
+  min-width: 2.75rem;
   height: 2.75rem;
   display: inline-flex;
   align-items: center;
@@ -957,7 +985,11 @@ textarea:focus-visible {
   flex-shrink: 0;
   border: 1px solid rgba(56, 189, 248, 0.28);
   border-radius: 14px;
-  font-size: 1.25rem;
+  padding-inline: 0.65rem;
+  color: var(--color-accent);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
   background: rgba(56, 189, 248, 0.08);
 }
 
