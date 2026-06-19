@@ -11,18 +11,37 @@
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
-  <header>
-    <nav aria-label="Navegação principal">
-      <a href="/" aria-label="Página inicial da Kaery">Kaery</a>
+  <header class="site-header">
+    <nav class="navbar" aria-label="Navegação principal">
+      <a class="navbar__brand" href="/" aria-label="Página inicial da Kaery">
+        <span class="navbar__brand-text">KAERY</span>
+      </a>
 
-      <ul>
-        <li><a href="#inicio">Início</a></li>
-        <li><a href="#sobre">Sobre</a></li>
-        <li><a href="#servicos">Serviços</a></li>
-        <li><a href="#portfolio">Portfólio</a></li>
-        <li><a href="#processo">Processo</a></li>
-        <li><a href="#contato">Contato</a></li>
+      <ul class="navbar__menu">
+        <li class="navbar__item"><a class="navbar__link" href="#inicio">Início</a></li>
+        <li class="navbar__item"><a class="navbar__link" href="#sobre">Sobre</a></li>
+        <li class="navbar__item"><a class="navbar__link" href="#servicos">Serviços</a></li>
+        <li class="navbar__item"><a class="navbar__link" href="#portfolio">Portfólio</a></li>
+        <li class="navbar__item"><a class="navbar__link" href="#processo">Processo</a></li>
+        <li class="navbar__item"><a class="navbar__link" href="#contato">Contato</a></li>
       </ul>
+
+      <div class="navbar__actions">
+        <a class="navbar__cta" href="https://wa.me/5573999938297">
+          Falar no WhatsApp
+        </a>
+
+        <button
+          class="navbar__mobile-toggle"
+          type="button"
+          aria-label="Abrir menu de navegação"
+          aria-expanded="false"
+        >
+          <span class="navbar__mobile-line"></span>
+          <span class="navbar__mobile-line"></span>
+          <span class="navbar__mobile-line"></span>
+        </button>
+      </div>
     </nav>
   </header>
 
@@ -49,8 +68,23 @@
           </div>
         </div>
 
-        <div class="hero__media" aria-label="Área reservada para futura imagem ou ilustração">
-          <div class="hero__media-placeholder" aria-hidden="true"></div>
+        <div class="hero__media" aria-label="Prévia visual de tecnologia da Kaery">
+          <div class="hero__tech-card" aria-hidden="true">
+            <div class="hero__tech-header">
+              <span class="hero__tech-dot"></span>
+              <span class="hero__tech-dot"></span>
+              <span class="hero__tech-dot"></span>
+            </div>
+
+            <div class="hero__tech-body">
+              <p class="hero__tech-brand">KAERY</p>
+              <div class="hero__tech-lines">
+                <span>Tecnologia</span>
+                <span>Automação</span>
+                <span>Inteligência IA</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
