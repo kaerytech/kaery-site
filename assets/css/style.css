@@ -12,7 +12,16 @@
   --container-max-width: 1120px;
   --container-padding: 1.5rem;
   --radius-default: 18px;
+  --radius-card: 18px;
+  --section-spacing: 6rem;
+  --section-spacing-mobile: 4rem;
+  --card-padding: 1.5rem;
+  --card-bg: rgba(13, 27, 46, 0.66);
+  --card-bg-hover: rgba(13, 27, 46, 0.92);
   --shadow-default: 0 24px 80px rgba(15, 23, 42, 0.35);
+  --shadow-card: 0 12px 34px rgba(2, 6, 23, 0.14);
+  --shadow-card-hover: 0 18px 42px rgba(2, 6, 23, 0.24);
+  --transition-default: 180ms ease;
 }
 
 /* ==============================
@@ -79,6 +88,20 @@ section p {
   color: var(--color-text-muted);
 }
 
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid rgba(56, 189, 248, 0.35);
+  outline-offset: 3px;
+}
+
 /* ==============================
    Container
 ============================== */
@@ -86,6 +109,115 @@ section p {
 .hero__container {
   width: min(100% - 2rem, var(--container-max-width));
   margin-inline: auto;
+}
+
+/* ==============================
+   Componentes compartilhados
+============================== */
+.hero__eyebrow,
+.about__eyebrow,
+.services__eyebrow,
+.portfolio__eyebrow,
+.process__eyebrow,
+.contact__eyebrow {
+  width: fit-content;
+  padding: 0.45rem 0.75rem;
+  border: 1px solid rgba(56, 189, 248, 0.28);
+  border-radius: 999px;
+  color: var(--color-accent);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: rgba(56, 189, 248, 0.08);
+}
+
+.about__title,
+.services__title,
+.portfolio__title,
+.process__title,
+.contact__title {
+  max-width: 760px;
+  margin-bottom: 1.25rem;
+  font-size: clamp(2.1rem, 5vw, 3.75rem);
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+}
+
+.services__description,
+.portfolio__description,
+.process__description,
+.contact__description {
+  max-width: 720px;
+  font-size: clamp(1rem, 1.7vw, 1.12rem);
+  line-height: 1.8;
+}
+
+.about__pillar,
+.hero__badge,
+.services__card,
+.portfolio__card,
+.process__step,
+.contact__card,
+.contact__form {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background:
+    linear-gradient(180deg, rgba(248, 250, 252, 0.04), transparent),
+    var(--card-bg);
+  box-shadow: var(--shadow-card);
+  transition:
+    transform var(--transition-default),
+    border-color var(--transition-default),
+    background-color var(--transition-default),
+    box-shadow var(--transition-default);
+}
+
+.about__pillar:hover,
+.services__card:hover,
+.portfolio__card:hover,
+.process__step:hover {
+  transform: translateY(-3px);
+  border-color: rgba(56, 189, 248, 0.45);
+  background:
+    linear-gradient(180deg, rgba(56, 189, 248, 0.08), transparent),
+    var(--card-bg-hover);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.navbar__cta,
+.hero__button,
+.portfolio__button,
+.contact__cta,
+.contact__submit {
+  min-height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  font-weight: 800;
+  transition:
+    transform var(--transition-default),
+    box-shadow var(--transition-default),
+    border-color var(--transition-default),
+    background-color var(--transition-default),
+    color var(--transition-default);
+}
+
+.navbar__cta,
+.hero__button--primary,
+.contact__cta,
+.contact__submit {
+  border-color: rgba(56, 189, 248, 0.45);
+  color: #03111f;
+  background: linear-gradient(135deg, var(--color-accent), #7dd3fc);
+}
+
+.hero__button--secondary,
+.portfolio__button {
+  border-color: var(--color-border);
+  color: var(--color-text);
+  background: rgba(13, 27, 46, 0.72);
 }
 
 /* ==============================
@@ -148,7 +280,7 @@ section p {
   display: inline-flex;
   align-items: center;
   min-height: 40px;
-  transition: color 180ms ease;
+  transition: color var(--transition-default);
 }
 
 .navbar__link::after {
@@ -162,7 +294,7 @@ section p {
   background: var(--color-accent);
   transform: scaleX(0);
   transform-origin: right;
-  transition: transform 180ms ease;
+  transition: transform var(--transition-default);
 }
 
 .navbar__link:hover,
@@ -183,21 +315,8 @@ section p {
 }
 
 .navbar__cta {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 42px;
-  padding: 0.65rem 1rem;
-  border: 1px solid rgba(56, 189, 248, 0.45);
-  border-radius: 999px;
-  color: #03111f;
+  padding: 0.8rem 1.1rem;
   font-size: 0.92rem;
-  font-weight: 700;
-  background: var(--color-accent);
-  transition:
-    transform 180ms ease,
-    border-color 180ms ease,
-    background-color 180ms ease;
 }
 
 .navbar__cta:hover,
@@ -303,48 +422,20 @@ section p {
 }
 
 .hero__button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 52px;
   padding: 0.9rem 1.35rem;
   border: 1px solid transparent;
-  border-radius: 999px;
-  font-weight: 700;
   box-shadow: 0 12px 32px rgba(2, 6, 23, 0.18);
-  transition:
-    transform 180ms ease,
-    box-shadow 180ms ease,
-    border-color 180ms ease,
-    background-color 180ms ease,
-    color 180ms ease;
 }
 
 .hero__button:hover,
 .hero__button:focus-visible {
   transform: translateY(-2px);
-  box-shadow: 0 18px 42px rgba(2, 6, 23, 0.28);
-}
-
-.hero__button:focus-visible {
-  outline: 3px solid rgba(56, 189, 248, 0.35);
-  outline-offset: 3px;
-}
-
-.hero__button--primary {
-  color: #03111f;
-  background: linear-gradient(135deg, var(--color-accent), #7dd3fc);
+  box-shadow: var(--shadow-card-hover);
 }
 
 .hero__button--primary:hover,
 .hero__button--primary:focus-visible {
   background: linear-gradient(135deg, #7dd3fc, var(--color-accent));
-}
-
-.hero__button--secondary {
-  border-color: var(--color-border);
-  color: var(--color-text);
-  background: rgba(13, 27, 46, 0.72);
 }
 
 .hero__button--secondary:hover,
@@ -441,16 +532,13 @@ section p {
 
 .hero__badge {
   padding: 0.85rem 1rem;
-  border: 1px solid var(--color-border);
   border-radius: 14px;
   color: var(--color-text-muted);
-  background: rgba(13, 27, 46, 0.62);
-  box-shadow: 0 12px 34px rgba(2, 6, 23, 0.14);
   transition:
-    transform 180ms ease,
-    border-color 180ms ease,
-    background-color 180ms ease,
-    color 180ms ease;
+    transform var(--transition-default),
+    border-color var(--transition-default),
+    background-color var(--transition-default),
+    color var(--transition-default);
 }
 
 .hero__badge:hover {
@@ -468,7 +556,7 @@ section p {
   grid-template-columns: minmax(0, 1fr) minmax(320px, 0.85fr);
   align-items: center;
   gap: clamp(2.5rem, 6vw, 5rem);
-  padding-block: 6rem;
+  padding-block: var(--section-spacing);
   border-block: 1px solid var(--color-border);
   background:
     radial-gradient(circle at 85% 20%, rgba(56, 189, 248, 0.1), transparent 20rem),
@@ -522,22 +610,7 @@ section p {
   flex-direction: column;
   justify-content: space-between;
   gap: 1.5rem;
-  padding: 1.25rem;
-  border: 1px solid var(--color-border);
-  border-radius: 16px;
-  background: rgba(13, 27, 46, 0.62);
-  box-shadow: 0 12px 34px rgba(2, 6, 23, 0.14);
-  transition:
-    transform 180ms ease,
-    border-color 180ms ease,
-    background-color 180ms ease,
-    color 180ms ease;
-}
-
-.about__pillar:hover {
-  transform: translateY(-2px);
-  border-color: rgba(56, 189, 248, 0.45);
-  background: rgba(13, 27, 46, 0.9);
+  padding: var(--card-padding);
 }
 
 .about__pillar-icon {
@@ -554,7 +627,7 @@ section p {
    Servicos
 ============================== */
 .services {
-  padding-block: 6rem;
+  padding-block: var(--section-spacing);
 }
 
 .services__header {
@@ -600,27 +673,7 @@ section p {
   flex-direction: column;
   justify-content: space-between;
   gap: 1.25rem;
-  padding: 1.35rem;
-  border: 1px solid var(--color-border);
-  border-radius: 16px;
-  background:
-    linear-gradient(180deg, rgba(248, 250, 252, 0.04), transparent),
-    rgba(13, 27, 46, 0.62);
-  box-shadow: 0 12px 34px rgba(2, 6, 23, 0.14);
-  transition:
-    transform 180ms ease,
-    border-color 180ms ease,
-    background-color 180ms ease,
-    box-shadow 180ms ease;
-}
-
-.services__card:hover {
-  transform: translateY(-3px);
-  border-color: rgba(56, 189, 248, 0.45);
-  background:
-    linear-gradient(180deg, rgba(56, 189, 248, 0.08), transparent),
-    rgba(13, 27, 46, 0.9);
-  box-shadow: 0 18px 42px rgba(2, 6, 23, 0.24);
+  padding: var(--card-padding);
 }
 
 .services__icon {
@@ -648,7 +701,7 @@ section p {
    Portfolio
 ============================== */
 .portfolio {
-  padding-block: 6rem;
+  padding-block: var(--section-spacing);
   border-block: 1px solid var(--color-border);
   background:
     radial-gradient(circle at 20% 10%, rgba(37, 99, 235, 0.12), transparent 22rem),
@@ -694,26 +747,6 @@ section p {
 
 .portfolio__card {
   overflow: hidden;
-  border: 1px solid var(--color-border);
-  border-radius: 18px;
-  background:
-    linear-gradient(180deg, rgba(248, 250, 252, 0.04), transparent),
-    rgba(13, 27, 46, 0.62);
-  box-shadow: 0 12px 34px rgba(2, 6, 23, 0.14);
-  transition:
-    transform 180ms ease,
-    border-color 180ms ease,
-    background-color 180ms ease,
-    box-shadow 180ms ease;
-}
-
-.portfolio__card:hover {
-  transform: translateY(-3px);
-  border-color: rgba(56, 189, 248, 0.45);
-  background:
-    linear-gradient(180deg, rgba(56, 189, 248, 0.08), transparent),
-    rgba(13, 27, 46, 0.9);
-  box-shadow: 0 18px 42px rgba(2, 6, 23, 0.24);
 }
 
 .portfolio__image {
@@ -734,7 +767,7 @@ section p {
   align-items: center;
   justify-content: center;
   border: 1px solid rgba(56, 189, 248, 0.28);
-  border-radius: 18px;
+  border-radius: var(--radius-card);
   font-size: 2rem;
   background: rgba(7, 17, 31, 0.52);
   box-shadow: inset 0 1px 0 rgba(248, 250, 252, 0.08);
@@ -765,22 +798,8 @@ section p {
 
 .portfolio__button {
   width: fit-content;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 42px;
   margin-top: 0.35rem;
   padding: 0.65rem 1rem;
-  border: 1px solid var(--color-border);
-  border-radius: 999px;
-  color: var(--color-text);
-  font-weight: 700;
-  background: rgba(13, 27, 46, 0.72);
-  transition:
-    transform 180ms ease,
-    border-color 180ms ease,
-    color 180ms ease,
-    background-color 180ms ease;
 }
 
 .portfolio__button:hover,
@@ -791,16 +810,11 @@ section p {
   background: rgba(13, 27, 46, 0.95);
 }
 
-.portfolio__button:focus-visible {
-  outline: 3px solid rgba(56, 189, 248, 0.35);
-  outline-offset: 3px;
-}
-
 /* ==============================
    Processo
 ============================== */
 .process {
-  padding-block: 6rem;
+  padding-block: var(--section-spacing);
 }
 
 .process__header {
@@ -858,27 +872,7 @@ section p {
   display: flex;
   flex-direction: column;
   gap: 1.1rem;
-  padding: 1.25rem;
-  border: 1px solid var(--color-border);
-  border-radius: 18px;
-  background:
-    linear-gradient(180deg, rgba(248, 250, 252, 0.04), transparent),
-    rgba(13, 27, 46, 0.62);
-  box-shadow: 0 12px 34px rgba(2, 6, 23, 0.14);
-  transition:
-    transform 180ms ease,
-    border-color 180ms ease,
-    background-color 180ms ease,
-    box-shadow 180ms ease;
-}
-
-.process__step:hover {
-  transform: translateY(-3px);
-  border-color: rgba(56, 189, 248, 0.45);
-  background:
-    linear-gradient(180deg, rgba(56, 189, 248, 0.08), transparent),
-    rgba(13, 27, 46, 0.9);
-  box-shadow: 0 18px 42px rgba(2, 6, 23, 0.24);
+  padding: var(--card-padding);
 }
 
 .process__marker {
@@ -923,7 +917,7 @@ section p {
    Contato
 ============================== */
 .contact {
-  padding-block: 6rem;
+  padding-block: var(--section-spacing);
   border-block: 1px solid var(--color-border);
   background:
     radial-gradient(circle at 85% 15%, rgba(56, 189, 248, 0.12), transparent 22rem),
@@ -968,20 +962,10 @@ section p {
   align-items: stretch;
 }
 
-.contact__card,
-.contact__form {
-  border: 1px solid var(--color-border);
-  border-radius: 18px;
-  background:
-    linear-gradient(180deg, rgba(248, 250, 252, 0.04), transparent),
-    rgba(13, 27, 46, 0.68);
-  box-shadow: 0 12px 34px rgba(2, 6, 23, 0.14);
-}
-
 .contact__card {
   display: grid;
   gap: 1rem;
-  padding: 1.35rem;
+  padding: var(--card-padding);
   font-style: normal;
 }
 
@@ -1029,23 +1013,9 @@ section p {
 
 .contact__cta,
 .contact__submit {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 52px;
   padding: 0.9rem 1.35rem;
-  border: 1px solid rgba(56, 189, 248, 0.45);
-  border-radius: 999px;
-  color: #03111f;
-  font-weight: 800;
-  background: linear-gradient(135deg, var(--color-accent), #7dd3fc);
   box-shadow: 0 12px 32px rgba(2, 6, 23, 0.18);
   cursor: pointer;
-  transition:
-    transform 180ms ease,
-    box-shadow 180ms ease,
-    border-color 180ms ease,
-    background-color 180ms ease;
 }
 
 .contact__cta:hover,
@@ -1054,22 +1024,14 @@ section p {
 .contact__submit:focus-visible {
   transform: translateY(-2px);
   border-color: rgba(125, 211, 252, 0.8);
-  box-shadow: 0 18px 42px rgba(2, 6, 23, 0.28);
-}
-
-.contact__cta:focus-visible,
-.contact__submit:focus-visible,
-.contact__field input:focus-visible,
-.contact__field textarea:focus-visible {
-  outline: 3px solid rgba(56, 189, 248, 0.35);
-  outline-offset: 3px;
+  box-shadow: var(--shadow-card-hover);
 }
 
 .contact__form {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
-  padding: 1.35rem;
+  padding: var(--card-padding);
 }
 
 .contact__field {
@@ -1314,7 +1276,7 @@ section p {
 
   .about {
     grid-template-columns: 1fr;
-    padding-block: 4rem;
+    padding-block: var(--section-spacing-mobile);
     text-align: center;
   }
 
@@ -1332,7 +1294,7 @@ section p {
   }
 
   .services {
-    padding-block: 4rem;
+    padding-block: var(--section-spacing-mobile);
   }
 
   .services__header {
@@ -1354,7 +1316,7 @@ section p {
   }
 
   .portfolio {
-    padding-block: 4rem;
+    padding-block: var(--section-spacing-mobile);
   }
 
   .portfolio__header {
@@ -1378,7 +1340,7 @@ section p {
   }
 
   .process {
-    padding-block: 4rem;
+    padding-block: var(--section-spacing-mobile);
   }
 
   .process__header {
@@ -1422,7 +1384,7 @@ section p {
   }
 
   .contact {
-    padding-block: 4rem;
+    padding-block: var(--section-spacing-mobile);
   }
 
   .contact__header {
