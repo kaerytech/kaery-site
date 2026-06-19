@@ -589,8 +589,8 @@ textarea:focus-visible {
 }
 
 .about__pillar-icon {
-  width: 3rem;
-  height: 3rem;
+  width: 5.25rem;
+  height: 4.75rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -602,6 +602,15 @@ textarea:focus-visible {
   letter-spacing: 0.12em;
   line-height: 1;
   background: rgba(56, 189, 248, 0.08);
+}
+
+.about__pillar-icon img,
+.services__icon img,
+.portfolio__image img,
+.process__icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .about__pillar h3 {
@@ -663,8 +672,8 @@ textarea:focus-visible {
 }
 
 .services__icon {
-  min-width: 3rem;
-  height: 3rem;
+  width: 5rem;
+  height: 4.5rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -751,8 +760,8 @@ textarea:focus-visible {
 }
 
 .portfolio__image span {
-  width: 4.5rem;
-  height: 4.5rem;
+  width: 8rem;
+  height: 7rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -883,8 +892,9 @@ textarea:focus-visible {
 }
 
 .process__icon {
-  min-width: 3.25rem;
-  height: 3.25rem;
+  width: 5rem;
+  min-width: 5rem;
+  height: 4.5rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1370,8 +1380,9 @@ textarea:focus-visible {
     position: absolute;
     top: 1.25rem;
     left: 1rem;
-    width: 2.8rem;
-    height: 2.8rem;
+    width: 3.4rem;
+    min-width: 3.4rem;
+    height: 3.2rem;
   }
 
   .contact {
