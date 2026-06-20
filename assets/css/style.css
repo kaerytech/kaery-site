@@ -252,11 +252,10 @@ textarea:focus-visible {
   flex-shrink: 0;
 }
 
-.navbar__brand-text {
-  color: var(--color-text);
-  font-size: 1.3rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
+.navbar__brand-logo {
+  width: 8.75rem;
+  height: auto;
+  filter: drop-shadow(0 0 12px rgba(56, 189, 248, 0.28));
 }
 
 .navbar__menu {
@@ -1118,10 +1117,12 @@ textarea:focus-visible {
 
 .site-footer__logo {
   width: fit-content;
-  color: var(--color-text);
-  font-size: 1.35rem;
-  font-weight: 900;
-  letter-spacing: 0.14em;
+}
+
+.site-footer__logo img {
+  width: 8.75rem;
+  height: auto;
+  filter: drop-shadow(0 0 14px rgba(56, 189, 248, 0.2));
 }
 
 .site-footer h2 {
