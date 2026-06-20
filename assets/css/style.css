@@ -651,7 +651,9 @@ textarea:focus-visible {
 .services__icon img,
 .portfolio__image img,
 .process__icon img,
-.contact__icon img {
+.contact__icon img,
+.site-footer__contact-icon img,
+.site-footer__social-placeholder img {
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -1195,6 +1197,15 @@ textarea:focus-visible {
   gap: 0.65rem;
 }
 
+.site-footer__contact-icon {
+  width: 1.65rem;
+  height: 1.65rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
 .site-footer__social ul {
   display: flex;
   flex-wrap: wrap;
@@ -1205,12 +1216,18 @@ textarea:focus-visible {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 0.45rem;
   min-height: 40px;
   padding: 0.55rem 0.9rem;
   border: 1px solid var(--color-border);
   border-radius: 999px;
   color: var(--color-text-muted);
   background: rgba(13, 27, 46, 0.58);
+}
+
+.site-footer__social-placeholder img {
+  width: 1.4rem;
+  height: 1.4rem;
 }
 
 .site-footer a {
