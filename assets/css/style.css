@@ -2,7 +2,7 @@
    Variaveis
 ============================== */
 :root {
-  --color-bg: #07111f;
+  --color-bg: #020308;
   --color-bg-secondary: #0d1b2e;
   --color-text: #f8fafc;
   --color-text-muted: #cbd5e1;
@@ -57,9 +57,9 @@ body {
   line-height: 1.6;
   color: var(--color-text);
   background:
-    radial-gradient(circle at top left, rgba(56, 189, 248, 0.16), transparent 34rem),
-    radial-gradient(circle at 85% 15%, rgba(37, 99, 235, 0.18), transparent 28rem),
-    linear-gradient(180deg, var(--color-bg) 0%, #081525 100%);
+    radial-gradient(circle at top left, rgba(56, 189, 248, 0.08), transparent 34rem),
+    radial-gradient(circle at 85% 15%, rgba(37, 99, 235, 0.1), transparent 28rem),
+    linear-gradient(180deg, var(--color-bg) 0%, #050b16 100%);
 }
 
 a {
@@ -327,6 +327,9 @@ textarea:focus-visible {
   position: relative;
   overflow: hidden;
   padding-block: 6.5rem 4rem;
+  background:
+    radial-gradient(circle at 50% 20%, rgba(56, 189, 248, 0.08), transparent 34rem),
+    linear-gradient(180deg, #020308 0%, #050b16 100%);
 }
 
 .hero::before {
@@ -339,6 +342,28 @@ textarea:focus-visible {
   background: rgba(56, 189, 248, 0.08);
   filter: blur(90px);
   transform: translateX(-10%);
+  pointer-events: none;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 20% 28%, rgba(56, 189, 248, 0.1), transparent 20rem),
+    radial-gradient(circle at 80% 18%, rgba(37, 99, 235, 0.1), transparent 24rem),
+    linear-gradient(180deg, rgba(2, 3, 8, 0.08), rgba(2, 3, 8, 0.74));
+  pointer-events: none;
+}
+
+.hero__stars {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.9;
   pointer-events: none;
 }
 
@@ -574,7 +599,7 @@ textarea:focus-visible {
 
 .about__pillars {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
   gap: 1rem;
 }
 
@@ -658,7 +683,7 @@ textarea:focus-visible {
 
 .services__grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
   gap: 1rem;
 }
 
@@ -740,7 +765,7 @@ textarea:focus-visible {
 
 .portfolio__grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
   gap: 1rem;
 }
 
@@ -853,7 +878,7 @@ textarea:focus-visible {
 .process__steps {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
   gap: 1rem;
 }
 
