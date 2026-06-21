@@ -794,15 +794,15 @@ textarea:focus-visible {
 
 .services__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
 }
 
 .services__card {
-  min-height: 360px;
+  min-height: auto;
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1rem;
   padding: var(--card-padding);
 }
 
@@ -818,6 +818,7 @@ textarea:focus-visible {
 }
 
 .services__image img {
+  object-fit: cover;
   transition:
     opacity var(--transition-default),
     transform 360ms ease;
