@@ -11,7 +11,7 @@ const translations = {
     heroSubtitle:
       "A Kaery cria sites, landing pages, automações e estratégias digitais para transformar presença online em resultado.",
     heroSecondary: "Conhecer serviços",
-    heroLines: ["Tecnologia", "Automação", "Inteligência IA"],
+    heroLines: ["Código", "Interface", "Sistema"],
     badges: ["WEB Sites Profissionais", "LP Landing Pages", "AUTO Automações", "ADS Google Ads"],
     aboutEyebrow: "QUEM SOMOS",
     aboutTitle: "Transformamos ideias em soluções digitais.",
@@ -79,7 +79,7 @@ const translations = {
     heroSubtitle:
       "Kaery creates websites, landing pages, automations and digital strategies that turn online presence into business results.",
     heroSecondary: "Explore services",
-    heroLines: ["Technology", "Automation", "AI Intelligence"],
+    heroLines: ["Code", "Interface", "System"],
     badges: ["WEB Professional Websites", "LP Landing Pages", "AUTO Automations", "ADS Google Ads"],
     aboutEyebrow: "WHO WE ARE",
     aboutTitle: "We turn ideas into digital solutions.",
@@ -166,7 +166,7 @@ const applyLanguage = (language) => {
   setText(".hero__subtitle", dictionary.heroSubtitle);
   setText(".hero__button--primary", dictionary.cta);
   setText(".hero__button--secondary", dictionary.heroSecondary);
-  setMany(".hero__tech-lines span", dictionary.heroLines, (element, value) => { element.textContent = value; });
+  setMany(".hero__imac-caption", dictionary.heroLines, (element, value) => { element.textContent = value; });
   setMany(".hero__badge", dictionary.badges, (element, value) => { element.textContent = value; });
 
   setText(".about__eyebrow", dictionary.aboutEyebrow);
@@ -232,6 +232,30 @@ document.querySelectorAll(".navbar__lang-button").forEach((button) => {
 });
 
 applyLanguage(localStorage.getItem("kaery-language") || "pt");
+
+const imacImages = document.querySelectorAll(".hero__imac-image");
+const imacDots = document.querySelectorAll(".hero__imac-dot");
+let imacCurrentSlide = 0;
+
+const showImacSlide = (index) => {
+  imacCurrentSlide = index % imacImages.length;
+  imacImages.forEach((image, imageIndex) => {
+    image.classList.toggle("is-active", imageIndex === imacCurrentSlide);
+  });
+  imacDots.forEach((dot, dotIndex) => {
+    dot.classList.toggle("is-active", dotIndex === imacCurrentSlide);
+  });
+};
+
+if (imacImages.length > 0 && imacDots.length > 0) {
+  imacDots.forEach((dot) => {
+    dot.addEventListener("click", () => showImacSlide(Number(dot.dataset.slide)));
+  });
+
+  window.setInterval(() => {
+    showImacSlide(imacCurrentSlide + 1);
+  }, 4200);
+}
 
 const starCanvas = document.querySelector(".hero__stars");
 
