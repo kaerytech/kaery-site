@@ -24,6 +24,7 @@ const translations = {
     servicesTitle: "Soluções que impulsionam empresas no ambiente digital.",
     servicesDescription:
       "Desenvolvemos soluções digitais completas para empresas que desejam crescer, vender mais e fortalecer sua presença online com tecnologia e estratégia.",
+    serviceControls: ["Anterior", "Próximo serviço"],
     services: [
       ["Sites Institucionais", "Sites profissionais para apresentar sua empresa com autoridade e clareza."],
       ["Landing Pages", "Páginas focadas em campanhas, captação de leads e conversão."],
@@ -92,6 +93,7 @@ const translations = {
     servicesTitle: "Solutions that help companies grow online.",
     servicesDescription:
       "We develop complete digital solutions for companies that want to grow, sell more and strengthen their online presence with technology and strategy.",
+    serviceControls: ["Previous", "Next service"],
     services: [
       ["Institutional Websites", "Professional websites that present your company with authority and clarity."],
       ["Landing Pages", "Campaign-focused pages built for lead generation and conversion."],
@@ -177,6 +179,15 @@ const applyLanguage = (language) => {
   setText(".services__eyebrow", dictionary.servicesEyebrow);
   setText(".services__title", dictionary.servicesTitle);
   setText(".services__description", dictionary.servicesDescription);
+  setText('[data-service-control="prev"]', dictionary.serviceControls[0]);
+  setText('[data-service-control="next"]', dictionary.serviceControls[1]);
+  document.querySelector('[data-service-control="prev"]')?.setAttribute("aria-label", dictionary.serviceControls[0]);
+  document.querySelector('[data-service-control="next"]')?.setAttribute("aria-label", dictionary.serviceControls[1]);
+  setMany(".services__showcase-slide", dictionary.services, (element, value, index) => {
+    element.querySelector(".services__showcase-content span").textContent = String(index + 1).padStart(2, "0");
+    element.querySelector("h3").textContent = value[0];
+    element.querySelector("p").textContent = value[1];
+  });
   setMany(".services__card", dictionary.services, (element, value) => {
     element.querySelector("h3").textContent = value[0];
     element.querySelector("p").textContent = value[1];
@@ -263,6 +274,53 @@ if (imacImages.length > 0 && imacDots.length > 0) {
   window.setInterval(() => {
     showImacSlide(imacCurrentSlide + 1);
   }, 4200);
+}
+
+const serviceSlides = document.querySelectorAll(".services__showcase-slide");
+const serviceDots = document.querySelectorAll(".services__tv-dot");
+const servicePrev = document.querySelector('[data-service-control="prev"]');
+const serviceNext = document.querySelector('[data-service-control="next"]');
+let serviceCurrentSlide = 0;
+let serviceTimer = null;
+
+const showServiceSlide = (index) => {
+  if (serviceSlides.length === 0) return;
+
+  const nextSlide = (index + serviceSlides.length) % serviceSlides.length;
+  if (nextSlide === serviceCurrentSlide) return;
+
+  serviceSlides.forEach((slide, slideIndex) => {
+    slide.classList.remove("is-active", "is-leaving");
+    if (slideIndex === serviceCurrentSlide) slide.classList.add("is-leaving");
+    if (slideIndex === nextSlide) slide.classList.add("is-active");
+  });
+
+  serviceCurrentSlide = nextSlide;
+
+  serviceDots.forEach((dot, dotIndex) => {
+    dot.classList.toggle("is-active", dotIndex === serviceCurrentSlide);
+  });
+};
+
+const restartServiceTimer = () => {
+  window.clearInterval(serviceTimer);
+  serviceTimer = window.setInterval(() => {
+    showServiceSlide(serviceCurrentSlide + 1);
+  }, 4800);
+};
+
+if (serviceSlides.length > 0) {
+  servicePrev?.addEventListener("click", () => {
+    showServiceSlide(serviceCurrentSlide - 1);
+    restartServiceTimer();
+  });
+
+  serviceNext?.addEventListener("click", () => {
+    showServiceSlide(serviceCurrentSlide + 1);
+    restartServiceTimer();
+  });
+
+  restartServiceTimer();
 }
 
 const initStarField = (starCanvas, density = 1) => {
