@@ -24,6 +24,8 @@
   --shadow-card: 0 12px 34px rgba(2, 6, 23, 0.14);
   --shadow-card-hover: 0 18px 42px rgba(2, 6, 23, 0.24);
   --transition-default: 180ms ease;
+  --font-base: "Segoe UI", Arial, Helvetica, sans-serif;
+  --font-display: "Bahnschrift", "Segoe UI Variable Display", "Segoe UI", Arial, sans-serif;
 }
 
 /* ==============================
@@ -56,7 +58,7 @@ svg {
 ============================== */
 body {
   min-height: 100vh;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-base);
   line-height: 1.6;
   color: var(--color-text);
   background:
@@ -87,8 +89,11 @@ main > section {
 
 section h2 {
   margin-bottom: 1rem;
+  font-family: var(--font-display);
   font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 700;
   line-height: 1.15;
+  letter-spacing: 0.01em;
 }
 
 section p {
@@ -131,6 +136,7 @@ textarea:focus-visible {
   border: 1px solid rgba(56, 189, 248, 0.28);
   border-radius: var(--radius-chip);
   color: var(--color-accent);
+  font-family: var(--font-display);
   font-size: 0.8rem;
   font-weight: 800;
   letter-spacing: 0.14em;
@@ -145,9 +151,11 @@ textarea:focus-visible {
 .contact__title {
   max-width: 760px;
   margin-bottom: 1.25rem;
+  font-family: var(--font-display);
+  font-weight: 700;
   font-size: clamp(2.1rem, 5vw, 3.75rem);
   line-height: 1.04;
-  letter-spacing: -0.03em;
+  letter-spacing: 0;
 }
 
 .services__description,
@@ -157,6 +165,17 @@ textarea:focus-visible {
   max-width: 720px;
   font-size: clamp(1rem, 1.7vw, 1.12rem);
   line-height: 1.8;
+}
+
+.about__pillar h3,
+.portfolio__card h3,
+.process__step h3,
+.contact__label,
+.contact__form label,
+.site-footer h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.04em;
 }
 
 .about__pillar,
@@ -201,6 +220,7 @@ textarea:focus-visible {
   align-items: center;
   justify-content: center;
   border-radius: var(--radius-control);
+  font-family: var(--font-display);
   font-weight: 800;
   transition:
     transform var(--transition-default),
@@ -271,6 +291,7 @@ textarea:focus-visible {
   justify-content: center;
   gap: 1.25rem;
   margin-left: auto;
+  font-family: var(--font-display);
   font-size: 0.95rem;
   color: var(--color-text-muted);
 }
@@ -330,6 +351,7 @@ textarea:focus-visible {
   border: 0;
   border-radius: var(--radius-chip);
   color: var(--color-text-muted);
+  font-family: var(--font-display);
   font-size: 0.76rem;
   font-weight: 900;
   letter-spacing: 0.08em;
@@ -440,9 +462,11 @@ textarea:focus-visible {
 .hero__title {
   max-width: 760px;
   margin-bottom: 1.5rem;
+  font-family: var(--font-display);
+  font-weight: 700;
   font-size: clamp(2.8rem, 6.6vw, 5.35rem);
   line-height: 0.98;
-  letter-spacing: -0.04em;
+  letter-spacing: 0;
 }
 
 .hero__subtitle {
@@ -697,7 +721,7 @@ textarea:focus-visible {
   margin-bottom: 1.5rem;
   font-size: clamp(2.1rem, 5vw, 3.75rem);
   line-height: 1.04;
-  letter-spacing: -0.03em;
+  letter-spacing: 0;
 }
 
 .about__text {
@@ -788,7 +812,7 @@ textarea:focus-visible {
   margin-bottom: 1.25rem;
   font-size: clamp(2.1rem, 5vw, 3.75rem);
   line-height: 1.04;
-  letter-spacing: -0.03em;
+  letter-spacing: 0;
 }
 
 .services__description {
@@ -847,6 +871,8 @@ textarea:focus-visible {
 
 .services__card h3 {
   margin-top: auto;
+  font-family: var(--font-display);
+  font-weight: 700;
   font-size: 1.18rem;
   line-height: 1.2;
 }
@@ -888,7 +914,7 @@ textarea:focus-visible {
   margin-bottom: 1.25rem;
   font-size: clamp(2.1rem, 5vw, 3.75rem);
   line-height: 1.04;
-  letter-spacing: -0.03em;
+  letter-spacing: 0;
 }
 
 .portfolio__description {
@@ -1000,7 +1026,7 @@ textarea:focus-visible {
   margin-bottom: 1.25rem;
   font-size: clamp(2.1rem, 5vw, 3.75rem);
   line-height: 1.04;
-  letter-spacing: -0.03em;
+  letter-spacing: 0;
 }
 
 .process__description {
@@ -1131,7 +1157,7 @@ textarea:focus-visible {
   margin-bottom: 1.25rem;
   font-size: clamp(2.1rem, 5vw, 3.75rem);
   line-height: 1.04;
-  letter-spacing: -0.03em;
+  letter-spacing: 0;
 }
 
 .contact__description {
@@ -1453,7 +1479,7 @@ textarea:focus-visible {
   }
 
   .hero__title {
-    letter-spacing: -0.03em;
+    letter-spacing: 0;
   }
 
   .hero__actions {
