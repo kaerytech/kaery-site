@@ -1447,6 +1447,19 @@ textarea:focus-visible {
     aspect-ratio: 9 / 16;
   }
 
+  .hero__imac-image {
+    transform: translateX(100%);
+  }
+
+  .hero__imac-image.is-active {
+    transform: translateX(0);
+  }
+
+  .hero__imac-image.is-leaving,
+  .hero__imac-image.is-before {
+    transform: translateX(-100%);
+  }
+
   .hero__imac-footer {
     justify-content: center;
     gap: 0.4rem;
@@ -1635,6 +1648,19 @@ textarea:focus-visible {
 
   .hero__imac-stage {
     aspect-ratio: 4 / 3;
+  }
+
+  .hero__imac-image {
+    transform: translateX(100%);
+  }
+
+  .hero__imac-image.is-active {
+    transform: translateX(0);
+  }
+
+  .hero__imac-image.is-leaving,
+  .hero__imac-image.is-before {
+    transform: translateX(-100%);
   }
 
   .hero__imac-footer {
