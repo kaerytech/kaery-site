@@ -11,10 +11,10 @@
   --color-border: rgba(148, 163, 184, 0.2);
   --container-max-width: 1120px;
   --container-padding: 1.5rem;
-  --radius-default: 18px;
-  --radius-card: 18px;
-  --radius-control: 10px;
-  --radius-chip: 12px;
+  --radius-default: 0;
+  --radius-card: 0;
+  --radius-control: 0;
+  --radius-chip: 0;
   --section-spacing: 6rem;
   --section-spacing-mobile: 4rem;
   --card-padding: 1.5rem;
@@ -320,7 +320,7 @@ textarea:focus-visible {
   gap: 0.25rem;
   padding: 0.25rem;
   border: 1px solid rgba(148, 163, 184, 0.18);
-  border-radius: 8px;
+  border-radius: 0;
   background: rgba(7, 17, 31, 0.68);
 }
 
@@ -497,7 +497,7 @@ textarea:focus-visible {
 .hero__imac-screen {
   overflow: hidden;
   border: 1px solid rgba(203, 213, 225, 0.22);
-  border-radius: 24px;
+  border-radius: 0;
   background:
     linear-gradient(180deg, rgba(248, 250, 252, 0.1), transparent 18%),
     rgba(4, 12, 24, 0.9);
@@ -625,7 +625,7 @@ textarea:focus-visible {
   width: 10rem;
   height: 0.8rem;
   margin-inline: auto;
-  border-radius: 999px;
+  border-radius: 0;
   background: linear-gradient(90deg, rgba(148, 163, 184, 0.14), rgba(248, 250, 252, 0.38), rgba(148, 163, 184, 0.14));
 }
 
@@ -733,7 +733,7 @@ textarea:focus-visible {
   align-items: center;
   justify-content: center;
   border: 1px solid rgba(56, 189, 248, 0.28);
-  border-radius: 14px;
+  border-radius: 0;
   color: var(--color-accent);
   font-size: 0.78rem;
   font-weight: 900;
@@ -1058,7 +1058,7 @@ textarea:focus-visible {
   align-items: center;
   justify-content: center;
   border: 1px solid rgba(56, 189, 248, 0.28);
-  border-radius: 16px;
+  border-radius: 0;
   padding-inline: 0.7rem;
   color: var(--color-accent);
   font-size: 0.72rem;
@@ -1162,7 +1162,7 @@ textarea:focus-visible {
   gap: 0.9rem;
   padding: 1rem;
   border: 1px solid rgba(148, 163, 184, 0.14);
-  border-radius: 16px;
+  border-radius: 0;
   background: rgba(7, 17, 31, 0.34);
 }
 
@@ -1175,7 +1175,7 @@ textarea:focus-visible {
   justify-content: center;
   flex-shrink: 0;
   border: 1px solid rgba(56, 189, 248, 0.28);
-  border-radius: 14px;
+  border-radius: 0;
   padding: 0.42rem;
   color: var(--color-accent);
   font-size: 0.68rem;
@@ -1246,7 +1246,7 @@ textarea:focus-visible {
 .contact__field textarea {
   width: 100%;
   border: 1px solid var(--color-border);
-  border-radius: 14px;
+  border-radius: 0;
   padding: 0.9rem 1rem;
   color: var(--color-text);
   font: inherit;
@@ -1483,7 +1483,7 @@ textarea:focus-visible {
   }
 
   .hero__imac-screen {
-    border-radius: 28px;
+    border-radius: 0;
     box-shadow:
       inset 0 1px 0 rgba(248, 250, 252, 0.12),
       0 0 0 8px rgba(2, 3, 8, 0.72),
@@ -1689,7 +1689,7 @@ textarea:focus-visible {
   }
 
   .hero__imac-screen {
-    border-radius: 30px;
+    border-radius: 0;
   }
 
   .hero__imac-stage {
