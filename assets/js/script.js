@@ -55,7 +55,7 @@ const translations = {
     contactEyebrow: "VAMOS CONVERSAR",
     contactTitle: "Seu próximo projeto começa com uma boa conversa.",
     contactDescription:
-      "Estamos prontos para entender o seu desafio e desenvolver uma solução digital sob medida para o seu negócio.",
+      "Estamos prontos para entender o seu desafio e desenvolver uma solução digital sob medida para o seu negócio. Conheça planos e personalizações pensadas para fortalecer sua presença digital com estratégia.",
     contactLabels: ["WhatsApp", "E-mail", "Site", "Localização"],
     location: "Teixeira de Freitas • BA",
     fields: ["Nome", "E-mail", "Telefone", "Empresa", "Mensagem"],
@@ -123,7 +123,7 @@ const translations = {
     contactEyebrow: "LET'S TALK",
     contactTitle: "Your next project starts with a good conversation.",
     contactDescription:
-      "We are ready to understand your challenge and develop a custom digital solution for your business.",
+      "We are ready to understand your challenge and develop a custom digital solution for your business. Explore plans and tailored options designed to strengthen your digital presence with strategy.",
     contactLabels: ["WhatsApp", "Email", "Website", "Location"],
     location: "Teixeira de Freitas • Bahia, Brazil",
     fields: ["Name", "Email", "Phone", "Company", "Message"],

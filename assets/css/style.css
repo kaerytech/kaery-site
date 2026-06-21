@@ -37,6 +37,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 7rem;
 }
 
 img,
@@ -76,6 +77,10 @@ footer {
   width: min(100% - 2rem, var(--container-max-width));
   margin-inline: auto;
   padding-block: 4rem;
+}
+
+main > section {
+  scroll-margin-top: 7rem;
 }
 
 section h2 {
@@ -1340,6 +1345,14 @@ textarea:focus-visible {
    Responsividade
 ============================== */
 @media (max-width: 768px) {
+  html {
+    scroll-padding-top: 10rem;
+  }
+
+  main > section {
+    scroll-margin-top: 10rem;
+  }
+
   .navbar {
     min-height: auto;
     padding-block: 1rem;
@@ -1399,19 +1412,39 @@ textarea:focus-visible {
   }
 
   .hero__imac {
-    width: min(100%, 23rem);
+    width: min(100%, 16rem);
   }
 
   .hero__imac-toolbar {
-    min-height: 2.25rem;
+    min-height: 2.1rem;
+    justify-content: center;
   }
 
   .hero__imac-title {
+    display: none;
     font-size: 0.62rem;
   }
 
+  .hero__imac-screen {
+    border-radius: 28px;
+    box-shadow:
+      inset 0 1px 0 rgba(248, 250, 252, 0.12),
+      0 0 0 8px rgba(2, 3, 8, 0.72),
+      0 0 34px rgba(56, 189, 248, 0.16);
+  }
+
+  .hero__imac-stage {
+    aspect-ratio: 9 / 16;
+  }
+
   .hero__imac-footer {
+    display: none;
     justify-content: center;
+  }
+
+  .hero__imac-stand,
+  .hero__imac-base {
+    display: none;
   }
 
   .hero__badges {
@@ -1575,6 +1608,27 @@ textarea:focus-visible {
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
+  .hero__imac {
+    width: min(100%, 25rem);
+  }
+
+  .hero__imac-screen {
+    border-radius: 30px;
+  }
+
+  .hero__imac-stage {
+    aspect-ratio: 4 / 3;
+  }
+
+  .hero__imac-stand {
+    height: 1.4rem;
+  }
+
+  .hero__imac-base {
+    width: 7rem;
+    height: 0.55rem;
+  }
+
   .services__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
