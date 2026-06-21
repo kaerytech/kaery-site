@@ -563,15 +563,25 @@ textarea:focus-visible {
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  transform: scale(1.02);
+  transform: translateY(100%);
   transition:
-    opacity 600ms ease,
-    transform 900ms ease;
+    opacity 520ms ease,
+    transform 760ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .hero__imac-image.is-active {
   opacity: 1;
-  transform: scale(1);
+  transform: translateY(0);
+}
+
+.hero__imac-image.is-leaving {
+  opacity: 0;
+  transform: translateY(-100%);
+}
+
+.hero__imac-image.is-before {
+  opacity: 0;
+  transform: translateY(-100%);
 }
 
 .hero__imac-footer {

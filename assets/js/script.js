@@ -238,10 +238,18 @@ const imacDots = document.querySelectorAll(".hero__imac-dot");
 let imacCurrentSlide = 0;
 
 const showImacSlide = (index) => {
-  imacCurrentSlide = index % imacImages.length;
+  const nextSlide = (index + imacImages.length) % imacImages.length;
+  if (nextSlide === imacCurrentSlide) return;
+
   imacImages.forEach((image, imageIndex) => {
-    image.classList.toggle("is-active", imageIndex === imacCurrentSlide);
+    image.classList.remove("is-active", "is-leaving", "is-before");
+    if (imageIndex === imacCurrentSlide) image.classList.add("is-leaving");
+    if (imageIndex === nextSlide) image.classList.add("is-active");
+    if (imageIndex !== imacCurrentSlide && imageIndex !== nextSlide) image.classList.add("is-before");
   });
+
+  imacCurrentSlide = nextSlide;
+
   imacDots.forEach((dot, dotIndex) => {
     dot.classList.toggle("is-active", dotIndex === imacCurrentSlide);
   });
