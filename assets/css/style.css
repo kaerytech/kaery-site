@@ -834,6 +834,7 @@ textarea:focus-visible {
   border-radius: calc(var(--radius-card) - 9px);
   object-fit: cover;
   transition:
+    filter var(--transition-default),
     opacity var(--transition-default),
     transform 360ms ease;
 }
@@ -848,7 +849,8 @@ textarea:focus-visible {
 
 .services__card:hover .services__image img {
   transform: scale(1.04);
-  opacity: 0.92;
+  filter: brightness(1.08) contrast(1.04) saturate(1.06);
+  opacity: 1;
 }
 
 .services__card h3 {
