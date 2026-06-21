@@ -1438,8 +1438,15 @@ textarea:focus-visible {
   }
 
   .hero__imac-footer {
-    display: none;
     justify-content: center;
+    gap: 0.4rem;
+    padding: 0.65rem 0.65rem 0.8rem;
+  }
+
+  .hero__imac-caption {
+    padding: 0.38rem 0.55rem;
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
   }
 
   .hero__imac-stand,
@@ -1618,6 +1625,14 @@ textarea:focus-visible {
 
   .hero__imac-stage {
     aspect-ratio: 4 / 3;
+  }
+
+  .hero__imac-footer {
+    justify-content: center;
+  }
+
+  .hero__imac-caption {
+    font-size: 0.68rem;
   }
 
   .hero__imac-stand {
