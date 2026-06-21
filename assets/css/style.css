@@ -814,19 +814,36 @@ textarea:focus-visible {
 .services__image {
   width: 100%;
   aspect-ratio: 1 / 1;
+  padding: 5px;
   overflow: hidden;
   border: 1px solid rgba(56, 189, 248, 0.28);
   border-radius: calc(var(--radius-card) - 4px);
   background:
+    linear-gradient(135deg, rgba(248, 250, 252, 0.18), transparent 28%, rgba(56, 189, 248, 0.14) 52%, transparent 76%),
+    repeating-linear-gradient(45deg, rgba(148, 163, 184, 0.14) 0 2px, rgba(2, 3, 8, 0.5) 2px 5px),
+    repeating-linear-gradient(135deg, rgba(56, 189, 248, 0.1) 0 2px, rgba(2, 3, 8, 0.34) 2px 5px),
     radial-gradient(circle at 20% 20%, rgba(56, 189, 248, 0.16), transparent 9rem),
     rgba(7, 17, 31, 0.52);
+  transition:
+    padding var(--transition-default),
+    border-color var(--transition-default),
+    box-shadow var(--transition-default);
 }
 
 .services__image img {
+  border-radius: calc(var(--radius-card) - 9px);
   object-fit: cover;
   transition:
     opacity var(--transition-default),
     transform 360ms ease;
+}
+
+.services__card:hover .services__image {
+  padding: 6px;
+  border-color: rgba(56, 189, 248, 0.52);
+  box-shadow:
+    inset 0 0 18px rgba(56, 189, 248, 0.1),
+    0 0 26px rgba(56, 189, 248, 0.14);
 }
 
 .services__card:hover .services__image img {
