@@ -265,11 +265,9 @@ if (imacImages.length > 0 && imacDots.length > 0) {
   }, 4200);
 }
 
-const starCanvas = document.querySelector(".hero__stars");
-
-if (starCanvas) {
+const initStarField = (starCanvas, density = 1) => {
   const context = starCanvas.getContext("2d", { alpha: true });
-  const hero = starCanvas.closest(".hero");
+  const section = starCanvas.closest(".hero, .contact");
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const pointer = { x: 0, y: 0 };
   const stars = [];
@@ -305,10 +303,13 @@ if (starCanvas) {
     stars.length = 0;
     const area = width * height;
     const mobileFactor = width < 768 ? 0.56 : 1;
-    const total = Math.floor(Math.min(1300, Math.max(360, Math.floor(area / 1050) * mobileFactor)));
+    const baseTotal = Math.floor(area / 1050) * mobileFactor * density;
+    const minStars = Math.floor(260 * density);
+    const maxStars = Math.floor(1300 * density);
+    const total = Math.floor(Math.min(maxStars, Math.max(minStars, baseTotal)));
     const farCount = Math.floor(total * 0.9);
     const midCount = Math.floor(total * 0.09);
-    const nearCount = Math.max(10, Math.min(15, total - farCount - midCount));
+    const nearCount = Math.max(Math.floor(6 * density), Math.min(Math.floor(15 * density), total - farCount - midCount));
 
     for (let index = 0; index < farCount; index += 1) stars.push(createStar("far"));
     for (let index = 0; index < midCount; index += 1) stars.push(createStar("mid"));
@@ -384,13 +385,13 @@ if (starCanvas) {
   };
 
   window.addEventListener("resize", resize);
-  hero.addEventListener("pointermove", (event) => {
-    const rect = hero.getBoundingClientRect();
+  section.addEventListener("pointermove", (event) => {
+    const rect = section.getBoundingClientRect();
     pointer.x = ((event.clientX - rect.left) / rect.width - 0.5) * 2;
     pointer.y = ((event.clientY - rect.top) / rect.height - 0.5) * 2;
   });
 
-  hero.addEventListener("pointerleave", () => {
+  section.addEventListener("pointerleave", () => {
     pointer.x = 0;
     pointer.y = 0;
   });
@@ -406,5 +407,10 @@ if (starCanvas) {
 
   resize();
   start();
-  observer.observe(hero);
-}
+  observer.observe(section);
+};
+
+document.querySelectorAll(".hero__stars, .contact__stars").forEach((canvas) => {
+  const density = canvas.classList.contains("contact__stars") ? 0.36 : 1;
+  initStarField(canvas, density);
+});
