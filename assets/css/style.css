@@ -735,7 +735,7 @@ textarea:focus-visible {
 }
 
 .about__pillar-icon img,
-.services__icon img,
+.services__image img,
 .portfolio__image img,
 .process__icon img,
 .contact__icon img,
@@ -796,31 +796,37 @@ textarea:focus-visible {
 }
 
 .services__card {
-  min-height: 230px;
+  min-height: 360px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   gap: 1.25rem;
   padding: var(--card-padding);
 }
 
-.services__icon {
-  width: 5rem;
-  height: 4.5rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+.services__image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
   border: 1px solid rgba(56, 189, 248, 0.28);
-  border-radius: 14px;
-  padding-inline: 0.75rem;
-  color: var(--color-accent);
-  font-size: 0.78rem;
-  font-weight: 900;
-  letter-spacing: 0.1em;
-  background: rgba(56, 189, 248, 0.08);
+  border-radius: calc(var(--radius-card) - 4px);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(56, 189, 248, 0.16), transparent 9rem),
+    rgba(7, 17, 31, 0.52);
+}
+
+.services__image img {
+  transition:
+    opacity var(--transition-default),
+    transform 360ms ease;
+}
+
+.services__card:hover .services__image img {
+  transform: scale(1.04);
+  opacity: 0.92;
 }
 
 .services__card h3 {
+  margin-top: auto;
   font-size: 1.18rem;
   line-height: 1.2;
 }
