@@ -497,7 +497,7 @@ textarea:focus-visible {
 .hero__imac-screen {
   overflow: hidden;
   border: 1px solid rgba(203, 213, 225, 0.22);
-  border-radius: 0;
+  border-radius: 14px;
   background:
     linear-gradient(180deg, rgba(248, 250, 252, 0.1), transparent 18%),
     rgba(4, 12, 24, 0.9);
@@ -1483,7 +1483,7 @@ textarea:focus-visible {
   }
 
   .hero__imac-screen {
-    border-radius: 0;
+    border-radius: 22px;
     box-shadow:
       inset 0 1px 0 rgba(248, 250, 252, 0.12),
       0 0 0 8px rgba(2, 3, 8, 0.72),
@@ -1689,7 +1689,7 @@ textarea:focus-visible {
   }
 
   .hero__imac-screen {
-    border-radius: 0;
+    border-radius: 16px;
   }
 
   .hero__imac-stage {
