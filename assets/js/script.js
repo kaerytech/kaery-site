@@ -56,8 +56,8 @@ const translations = {
     contactTitle: "Seu próximo projeto começa com uma boa conversa.",
     contactDescription:
       "Estamos prontos para entender o seu desafio e desenvolver uma solução digital sob medida para o seu negócio. Conheça planos e personalizações pensadas para fortalecer sua presença digital com estratégia.",
-    contactLabels: ["WhatsApp", "E-mail", "Site", "Localização"],
-    location: "Teixeira de Freitas • BA",
+    contactLabels: ["WhatsApp", "E-mail", "Site", "Atendimento"],
+    location: "Todo Brasil e exterior",
     fields: ["Nome", "E-mail", "Telefone", "Empresa", "Mensagem"],
     submit: "Enviar Mensagem",
     footerText: "Soluções digitais para empresas que desejam crescer com tecnologia, estratégia e inovação.",
@@ -124,8 +124,8 @@ const translations = {
     contactTitle: "Your next project starts with a good conversation.",
     contactDescription:
       "We are ready to understand your challenge and develop a custom digital solution for your business. Explore plans and tailored options designed to strengthen your digital presence with strategy.",
-    contactLabels: ["WhatsApp", "Email", "Website", "Location"],
-    location: "Teixeira de Freitas • Bahia, Brazil",
+    contactLabels: ["WhatsApp", "Email", "Website", "Service Area"],
+    location: "Brazil and international clients",
     fields: ["Name", "Email", "Phone", "Company", "Message"],
     submit: "Send Message",
     footerText: "Digital solutions for companies that want to grow with technology, strategy and innovation.",
