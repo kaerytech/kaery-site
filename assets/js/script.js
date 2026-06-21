@@ -12,7 +12,7 @@ const translations = {
       "A Kaery cria sites, landing pages, automações e estratégias digitais para transformar presença online em resultado.",
     heroSecondary: "Conhecer serviços",
     heroLines: ["Código", "Interface", "Sistema"],
-    badges: ["WEB Sites Profissionais", "LP Landing Pages", "AUTO Automações", "ADS Google Ads"],
+    badges: ["WEB Sites Profissionais", "Landing Pages", "AUTO Automações", "Google Ads"],
     aboutEyebrow: "QUEM SOMOS",
     aboutTitle: "Transformamos ideias em soluções digitais.",
     aboutParagraphs: [
@@ -80,7 +80,7 @@ const translations = {
       "Kaery creates websites, landing pages, automations and digital strategies that turn online presence into business results.",
     heroSecondary: "Explore services",
     heroLines: ["Code", "Interface", "System"],
-    badges: ["WEB Professional Websites", "LP Landing Pages", "AUTO Automations", "ADS Google Ads"],
+    badges: ["WEB Professional Websites", "Landing Pages", "AUTO Automations", "Google Ads"],
     aboutEyebrow: "WHO WE ARE",
     aboutTitle: "We turn ideas into digital solutions.",
     aboutParagraphs: [
