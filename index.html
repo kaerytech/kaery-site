@@ -454,15 +454,21 @@
       </div>
 
       <div class="contact__layout">
-        <form class="contact__form" action="#" method="post">
+        <form class="contact__form" action="https://formsubmit.co/kaerytech@gmail.com" method="post">
+          <input type="hidden" name="_subject" value="Novo lead pelo site da Kaery" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_next" value="https://www.kaery.com.br/#contato" />
+          <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display: none;" />
+
           <div class="contact__field">
             <label for="nome">Nome</label>
-            <input id="nome" name="nome" type="text" autocomplete="name" />
+            <input id="nome" name="nome" type="text" autocomplete="name" required />
           </div>
 
           <div class="contact__field">
             <label for="email">E-mail</label>
-            <input id="email" name="email" type="email" autocomplete="email" />
+            <input id="email" name="email" type="email" autocomplete="email" required />
           </div>
 
           <div class="contact__field">
@@ -477,7 +483,7 @@
 
           <div class="contact__field contact__field--full">
             <label for="mensagem">Mensagem</label>
-            <textarea id="mensagem" name="mensagem" rows="4"></textarea>
+            <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
           </div>
 
           <button class="contact__submit" type="submit">Enviar Mensagem</button>
