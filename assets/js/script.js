@@ -61,6 +61,8 @@ const translations = {
     location: "Todo Brasil e exterior",
     fields: ["Nome", "E-mail", "Telefone", "Empresa", "Mensagem"],
     submit: "Enviar Mensagem",
+    successTitle: "Mensagem enviada com sucesso.",
+    successText: "Recebemos suas informações e vamos retornar em breve pelo canal informado.",
     footerText: "Soluções digitais para empresas que desejam crescer com tecnologia, estratégia e inovação.",
     footerNavTitle: "Navegação",
     footerContactTitle: "Contato",
@@ -130,6 +132,8 @@ const translations = {
     location: "Brazil and international clients",
     fields: ["Name", "Email", "Phone", "Company", "Message"],
     submit: "Send Message",
+    successTitle: "Message sent successfully.",
+    successText: "We received your information and will reply soon through the contact channel provided.",
     footerText: "Digital solutions for companies that want to grow with technology, strategy and innovation.",
     footerNavTitle: "Navigation",
     footerContactTitle: "Contact",
@@ -214,6 +218,8 @@ const applyLanguage = (language) => {
   setText(".contact__cta", dictionary.cta);
   setMany(".contact__field label", dictionary.fields, (element, value) => { element.textContent = value; });
   setText(".contact__submit", dictionary.submit);
+  setText(".contact__success-title", dictionary.successTitle);
+  setText(".contact__success-text", dictionary.successText);
   setText(".contact__social h3", dictionary.footerSocialTitle);
 
   setText(".site-footer__brand p", dictionary.footerText);
@@ -239,6 +245,32 @@ document.querySelectorAll(".navbar__lang-button").forEach((button) => {
 });
 
 applyLanguage(localStorage.getItem("kaery-language") || "pt");
+
+const showContactSuccess = () => {
+  const params = new URLSearchParams(window.location.search);
+  const form = document.querySelector(".contact__form");
+
+  if (params.get("sent") !== "1" || !form) return;
+
+  form.innerHTML = `
+    <div class="contact__success" role="status" aria-live="polite">
+      <span class="contact__success-mark" aria-hidden="true">OK</span>
+      <h3 class="contact__success-title"></h3>
+      <p class="contact__success-text"></p>
+      <a class="contact__success-link" href="https://wa.me/5573999938297">Falar no WhatsApp</a>
+    </div>
+  `;
+
+  const language = localStorage.getItem("kaery-language") || "pt";
+  const dictionary = translations[language] || translations.pt;
+  setText(".contact__success-title", dictionary.successTitle);
+  setText(".contact__success-text", dictionary.successText);
+  setText(".contact__success-link", dictionary.cta);
+
+  window.history.replaceState({}, document.title, `${window.location.pathname}#contato`);
+};
+
+showContactSuccess();
 
 const imacImages = document.querySelectorAll(".hero__imac-image");
 const imacDots = document.querySelectorAll(".hero__imac-dot");
