@@ -186,11 +186,11 @@ textarea:focus-visible {
 .contact__card,
 .contact__form,
 .contact__social {
-  border: 1px solid var(--color-border);
+  border: 1px solid rgba(148, 163, 184, 0.14);
   border-radius: var(--radius-card);
   background:
     linear-gradient(180deg, rgba(248, 250, 252, 0.04), transparent),
-    var(--card-bg);
+    rgba(13, 27, 46, 0.44);
   box-shadow: var(--shadow-card);
   transition:
     transform var(--transition-default),
@@ -206,7 +206,7 @@ textarea:focus-visible {
   border-color: rgba(56, 189, 248, 0.45);
   background:
     linear-gradient(180deg, rgba(56, 189, 248, 0.08), transparent),
-    var(--card-bg-hover);
+    rgba(13, 27, 46, 0.72);
   box-shadow: var(--shadow-card-hover);
 }
 
@@ -693,10 +693,6 @@ textarea:focus-visible {
   grid-template-columns: 1fr;
   gap: 2rem;
   padding-block: var(--section-spacing);
-  border-block: 1px solid var(--color-border);
-  background:
-    radial-gradient(circle at 85% 20%, rgba(56, 189, 248, 0.1), transparent 20rem),
-    linear-gradient(180deg, rgba(13, 27, 46, 0.72), rgba(7, 17, 31, 0.2));
 }
 
 .about__content {
@@ -977,10 +973,6 @@ textarea:focus-visible {
 ============================== */
 .portfolio {
   padding-block: var(--section-spacing);
-  border-block: 1px solid var(--color-border);
-  background:
-    radial-gradient(circle at 20% 10%, rgba(37, 99, 235, 0.12), transparent 22rem),
-    linear-gradient(180deg, rgba(13, 27, 46, 0.52), rgba(7, 17, 31, 0.18));
 }
 
 .portfolio__header {
