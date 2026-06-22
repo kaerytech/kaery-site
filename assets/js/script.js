@@ -188,11 +188,6 @@ const applyLanguage = (language) => {
     element.querySelector("h3").textContent = value[0];
     element.querySelector("p").textContent = value[1];
   });
-  setMany(".services__card", dictionary.services, (element, value) => {
-    element.querySelector("h3").textContent = value[0];
-    element.querySelector("p").textContent = value[1];
-  });
-
   setText(".portfolio__eyebrow", dictionary.portfolioEyebrow);
   setText(".portfolio__title", dictionary.portfolioTitle);
   setText(".portfolio__description", dictionary.portfolioDescription);
@@ -219,6 +214,7 @@ const applyLanguage = (language) => {
   setText(".contact__cta", dictionary.cta);
   setMany(".contact__field label", dictionary.fields, (element, value) => { element.textContent = value; });
   setText(".contact__submit", dictionary.submit);
+  setText(".contact__social h3", dictionary.footerSocialTitle);
 
   setText(".site-footer__brand p", dictionary.footerText);
   setText(".site-footer__nav h2", dictionary.footerNavTitle);

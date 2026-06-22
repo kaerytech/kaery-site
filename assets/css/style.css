@@ -172,6 +172,7 @@ textarea:focus-visible {
 .process__step h3,
 .contact__label,
 .contact__form label,
+.contact__social h3,
 .site-footer h2 {
   font-family: var(--font-display);
   font-weight: 700;
@@ -180,11 +181,11 @@ textarea:focus-visible {
 
 .about__pillar,
 .hero__badge,
-.services__card,
 .portfolio__card,
 .process__step,
 .contact__card,
-.contact__form {
+.contact__form,
+.contact__social {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-card);
   background:
@@ -199,7 +200,6 @@ textarea:focus-visible {
 }
 
 .about__pillar:hover,
-.services__card:hover,
 .portfolio__card:hover,
 .process__step:hover {
   transform: translateY(-3px);
@@ -690,9 +690,8 @@ textarea:focus-visible {
 ============================== */
 .about {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.85fr);
-  align-items: center;
-  gap: clamp(2.5rem, 6vw, 5rem);
+  grid-template-columns: 1fr;
+  gap: 2rem;
   padding-block: var(--section-spacing);
   border-block: 1px solid var(--color-border);
   background:
@@ -701,7 +700,7 @@ textarea:focus-visible {
 }
 
 .about__content {
-  max-width: 660px;
+  max-width: 760px;
 }
 
 .about__eyebrow {
@@ -737,22 +736,22 @@ textarea:focus-visible {
 
 .about__pillars {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
 }
 
 .about__pillar {
-  min-height: 150px;
+  min-height: 96px;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 1.5rem;
-  padding: var(--card-padding);
+  align-items: center;
+  gap: 0.85rem;
+  padding: 1rem;
 }
 
 .about__pillar-icon {
-  width: 5.25rem;
-  height: 4.75rem;
+  width: 3rem;
+  min-width: 3rem;
+  height: 3rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -767,7 +766,6 @@ textarea:focus-visible {
 }
 
 .about__pillar-icon img,
-.services__image img,
 .portfolio__image img,
 .process__icon img,
 .contact__icon img,
@@ -779,7 +777,7 @@ textarea:focus-visible {
 }
 
 .about__pillar h3 {
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   line-height: 1.2;
 }
 
@@ -974,66 +972,6 @@ textarea:focus-visible {
   box-shadow: 0 0 14px rgba(56, 189, 248, 0.56);
 }
 
-.services__grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.25rem;
-}
-
-.services__card {
-  min-height: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  padding: var(--card-padding);
-}
-
-.services__image {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  overflow: hidden;
-  border: 0;
-  border-radius: var(--radius-card);
-  background: rgba(7, 17, 31, 0.52);
-  box-shadow: 0 18px 34px rgba(2, 6, 23, 0.22);
-  transition:
-    box-shadow var(--transition-default);
-}
-
-.services__image img {
-  border-radius: inherit;
-  object-fit: cover;
-  transition:
-    filter var(--transition-default),
-    opacity var(--transition-default),
-    transform 360ms ease;
-}
-
-.services__card:hover .services__image {
-  box-shadow:
-    0 0 0 1px rgba(56, 189, 248, 0.18),
-    0 20px 42px rgba(2, 6, 23, 0.34),
-    0 0 30px rgba(56, 189, 248, 0.12);
-}
-
-.services__card:hover .services__image img {
-  transform: scale(1.04);
-  filter: brightness(1.08) contrast(1.04) saturate(1.06);
-  opacity: 1;
-}
-
-.services__card h3 {
-  margin-top: auto;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.18rem;
-  line-height: 1.2;
-}
-
-.services__card p {
-  line-height: 1.75;
-}
-
 /* ==============================
    Portfolio
 ============================== */
@@ -1216,20 +1154,28 @@ textarea:focus-visible {
 }
 
 .process__marker {
+  position: relative;
+  width: 5rem;
+  height: 4.5rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
+  justify-content: center;
 }
 
 .process__number {
-  color: rgba(248, 250, 252, 0.34);
-  font-size: 0.92rem;
+  position: relative;
+  z-index: 2;
+  color: var(--color-text);
+  font-family: var(--font-display);
+  font-size: 1.05rem;
   font-weight: 900;
   letter-spacing: 0.16em;
+  text-shadow: 0 0 16px rgba(56, 189, 248, 0.72);
 }
 
 .process__icon {
+  position: absolute;
+  inset: 0;
   width: 5rem;
   min-width: 5rem;
   height: 4.5rem;
@@ -1246,6 +1192,7 @@ textarea:focus-visible {
   background:
     radial-gradient(circle at 30% 20%, rgba(56, 189, 248, 0.18), transparent 4rem),
     rgba(7, 17, 31, 0.52);
+  opacity: 0.42;
 }
 
 .process__step h3 {
@@ -1323,32 +1270,37 @@ textarea:focus-visible {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(280px, 0.85fr) minmax(0, 1.15fr);
+  grid-template-columns: minmax(280px, 0.88fr) minmax(0, 1.12fr);
   gap: 1.25rem;
-  align-items: stretch;
+  align-items: start;
+}
+
+.contact__side {
+  display: grid;
+  gap: 1rem;
 }
 
 .contact__card {
   display: grid;
-  gap: 1rem;
-  padding: var(--card-padding);
+  gap: 0.75rem;
+  padding: 1rem;
   font-style: normal;
 }
 
 .contact__info {
   display: flex;
   align-items: flex-start;
-  gap: 0.9rem;
-  padding: 1rem;
+  gap: 0.75rem;
+  padding: 0.8rem;
   border: 1px solid rgba(148, 163, 184, 0.14);
   border-radius: 0;
   background: rgba(7, 17, 31, 0.34);
 }
 
 .contact__icon {
-  width: 2.75rem;
-  min-width: 2.75rem;
-  height: 2.75rem;
+  width: 2.4rem;
+  min-width: 2.4rem;
+  height: 2.4rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1400,9 +1352,9 @@ textarea:focus-visible {
 
 .contact__form {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-  padding: var(--card-padding);
+  grid-template-columns: 1fr;
+  gap: 0.8rem;
+  padding: 1.1rem;
 }
 
 .contact__field {
@@ -1410,14 +1362,9 @@ textarea:focus-visible {
   gap: 0.45rem;
 }
 
-.contact__field--full,
-.contact__submit {
-  grid-column: 1 / -1;
-}
-
 .contact__field label {
   color: var(--color-text);
-  font-size: 0.9rem;
+  font-size: 0.82rem;
   font-weight: 700;
 }
 
@@ -1426,7 +1373,7 @@ textarea:focus-visible {
   width: 100%;
   border: 1px solid var(--color-border);
   border-radius: 0;
-  padding: 0.9rem 1rem;
+  padding: 0.72rem 0.85rem;
   color: var(--color-text);
   font: inherit;
   background: rgba(7, 17, 31, 0.52);
@@ -1437,12 +1384,47 @@ textarea:focus-visible {
 
 .contact__field textarea {
   resize: vertical;
+  min-height: 7rem;
 }
 
 .contact__field input:focus-visible,
 .contact__field textarea:focus-visible {
   border-color: rgba(56, 189, 248, 0.7);
   background: rgba(7, 17, 31, 0.8);
+}
+
+.contact__social {
+  display: grid;
+  gap: 0.85rem;
+  padding: 1rem;
+}
+
+.contact__social h3 {
+  color: var(--color-text);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+.contact__social ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.contact__social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 38px;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  padding: 0.5rem 0.68rem;
+  color: var(--color-text-muted);
+  background: rgba(7, 17, 31, 0.34);
+}
+
+.contact__social-link img {
+  width: 1.15rem;
+  height: 1.15rem;
 }
 
 /* ==============================
@@ -1722,11 +1704,11 @@ textarea:focus-visible {
   }
 
   .about__pillars {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .about__pillar {
-    min-height: 120px;
+    min-height: 88px;
     align-items: center;
   }
 
@@ -1779,16 +1761,6 @@ textarea:focus-visible {
 
   .services__tv-button {
     flex: 1 1 8rem;
-  }
-
-  .services__grid {
-    grid-template-columns: 1fr;
-  }
-
-  .services__card {
-    min-height: 200px;
-    align-items: center;
-    text-align: center;
   }
 
   .portfolio {
@@ -1848,16 +1820,21 @@ textarea:focus-visible {
   }
 
   .process__marker {
-    justify-content: flex-start;
-  }
-
-  .process__icon {
     position: absolute;
     top: 1.25rem;
     left: 1rem;
     width: 3.4rem;
+    height: 3.2rem;
+  }
+
+  .process__icon {
+    width: 3.4rem;
     min-width: 3.4rem;
     height: 3.2rem;
+  }
+
+  .process__number {
+    font-size: 0.9rem;
   }
 
   .contact {
@@ -1943,10 +1920,6 @@ textarea:focus-visible {
   .hero__imac-base {
     width: 7rem;
     height: 0.55rem;
-  }
-
-  .services__grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .portfolio__grid {
