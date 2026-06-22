@@ -299,7 +299,7 @@ const setupContactDuplicateGuard = () => {
       return;
     }
 
-    localStorage.setItem("kaery-last-contact-signature", signature);
+    localStorage.setItem("kaery-pending-contact-signature", signature);
   });
 };
 
@@ -310,6 +310,12 @@ const showContactSuccess = () => {
   const form = document.querySelector(".contact__form");
 
   if (params.get("sent") !== "1" || !form) return;
+
+  const pendingSignature = localStorage.getItem("kaery-pending-contact-signature");
+  if (pendingSignature) {
+    localStorage.setItem("kaery-last-contact-signature", pendingSignature);
+    localStorage.removeItem("kaery-pending-contact-signature");
+  }
 
   form.innerHTML = `
     <div class="contact__success" role="status" aria-live="polite">
