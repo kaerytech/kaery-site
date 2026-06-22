@@ -63,6 +63,7 @@ const translations = {
     submit: "Enviar Mensagem",
     successTitle: "Mensagem enviada com sucesso.",
     successText: "Recebemos suas informações e vamos retornar em breve pelo canal informado.",
+    duplicateText: "Seu contato já foi encaminhado. Para enviar novamente, altere o e-mail ou telefone.",
     footerText: "Soluções digitais para empresas que desejam crescer com tecnologia, estratégia e inovação.",
     footerNavTitle: "Navegação",
     footerContactTitle: "Contato",
@@ -134,6 +135,7 @@ const translations = {
     submit: "Send Message",
     successTitle: "Message sent successfully.",
     successText: "We received your information and will reply soon through the contact channel provided.",
+    duplicateText: "Your contact was already forwarded. To send again, change the email or phone number.",
     footerText: "Digital solutions for companies that want to grow with technology, strategy and innovation.",
     footerNavTitle: "Navigation",
     footerContactTitle: "Contact",
@@ -220,6 +222,7 @@ const applyLanguage = (language) => {
   setText(".contact__submit", dictionary.submit);
   setText(".contact__success-title", dictionary.successTitle);
   setText(".contact__success-text", dictionary.successText);
+  setText(".contact__duplicate", dictionary.duplicateText);
   setText(".contact__social h3", dictionary.footerSocialTitle);
 
   setText(".site-footer__brand p", dictionary.footerText);
@@ -245,6 +248,62 @@ document.querySelectorAll(".navbar__lang-button").forEach((button) => {
 });
 
 applyLanguage(localStorage.getItem("kaery-language") || "pt");
+
+const getContactSignature = (form) => {
+  const email = form.querySelector("#email")?.value.trim().toLowerCase() || "";
+  const phone = form.querySelector("#telefone")?.value.replace(/\D/g, "") || "";
+  return `${email}|${phone}`;
+};
+
+const showDuplicateContactMessage = (form) => {
+  const language = localStorage.getItem("kaery-language") || "pt";
+  const dictionary = translations[language] || translations.pt;
+  let message = form.querySelector(".contact__duplicate");
+
+  if (!message) {
+    message = document.createElement("p");
+    message.className = "contact__duplicate";
+    message.setAttribute("role", "status");
+    form.prepend(message);
+  }
+
+  message.textContent = dictionary.duplicateText;
+};
+
+const hideDuplicateContactMessage = (form) => {
+  form.querySelector(".contact__duplicate")?.remove();
+};
+
+const setupContactDuplicateGuard = () => {
+  const form = document.querySelector(".contact__form");
+  if (!form) return;
+
+  form.querySelectorAll("#email, #telefone").forEach((field) => {
+    field.addEventListener("input", () => {
+      const signature = getContactSignature(form);
+      const lastSignature = localStorage.getItem("kaery-last-contact-signature");
+
+      if (signature !== lastSignature) {
+        hideDuplicateContactMessage(form);
+      }
+    });
+  });
+
+  form.addEventListener("submit", (event) => {
+    const signature = getContactSignature(form);
+    const lastSignature = localStorage.getItem("kaery-last-contact-signature");
+
+    if (signature && signature === lastSignature) {
+      event.preventDefault();
+      showDuplicateContactMessage(form);
+      return;
+    }
+
+    localStorage.setItem("kaery-last-contact-signature", signature);
+  });
+};
+
+setupContactDuplicateGuard();
 
 const showContactSuccess = () => {
   const params = new URLSearchParams(window.location.search);
